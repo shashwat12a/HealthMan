@@ -8,7 +8,8 @@ Team Members - Kings of Code
 
 # Installation
 
-``` git clone https://github.com/shashwat12a/HealthMan.git
+```
+git clone https://github.com/shashwat12a/HealthMan.git
 mvn clean
 mvn package
 ```
