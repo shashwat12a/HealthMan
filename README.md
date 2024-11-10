@@ -6,6 +6,14 @@ Team Members - Kings of Code
 * Shivam Kaushik
 # See schema.sql for DATABASE SCHEMA
 
+# Installation
+
+``` git clone https://github.com/shashwat12a/HealthMan.git
+mvn clean
+mvn package
+```
+then run .war package on the configured server
+
 ### We used chatgpt to correct the english grammar of code comments, proper credits intended to the tool "chatgpt" where it is due
 
 ### References
