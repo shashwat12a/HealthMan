@@ -2,7 +2,12 @@ package com.health.model;
 
 import java.util.Date;
 
-public class User {
+/**
+ * User represents a user in the system (can be an Admin, Doctor, or Patient).
+ * It holds the user's personal details and credentials.
+ */
+
+ public class User {
     Integer user_id;
     String username;
     String password;
@@ -28,6 +33,8 @@ public class User {
         this.created_at = created_at;
     }
 
+    // Getters and Setters for all fields
+    
     public Integer getUser_id() {
         return this.user_id;
     }

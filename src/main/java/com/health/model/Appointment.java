@@ -2,7 +2,11 @@ package com.health.model;
 
 import java.sql.Timestamp;
 import java.sql.Date;
-import java.sql.Time;
+
+/**
+ * Appointment represents an appointment between a doctor and a patient.
+ * It holds the details of the appointment, such as patient ID, doctor ID, date, and status.
+ */
 
 public class Appointment {
     Integer appointment_id;
@@ -24,6 +28,8 @@ public class Appointment {
         this.status = status;
         this.created_at = created_at;
     }
+
+    // Getters and Setters for all fields
 
     public Integer getAppointment_id() {
         return this.appointment_id;

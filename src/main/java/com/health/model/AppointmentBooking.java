@@ -1,5 +1,10 @@
 package com.health.model;
 
+/**
+ * AppointmentBooking represents the booking of an appointment by a patient.
+ * It links a patient to a specific appointment through their unique patient_id and appointment_id.
+ */
+
 public class AppointmentBooking {
     private int bookingId;
     private int patientId;

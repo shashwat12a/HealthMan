@@ -1,5 +1,10 @@
 package com.health.model;
 
+/**
+ * Doctor class represents a doctor in the healthcare system.
+ * It holds information about the doctor's personal details, specialty, and the ID.
+ */
+
 public class Doctor {
     Integer doctor_id;
     String specialty;
@@ -14,6 +19,7 @@ public class Doctor {
         this.qualifications = qualifications;
     }
 
+    // gettters and setters for all fields
     public Integer getDoctor_id() {
         return this.doctor_id;
     }

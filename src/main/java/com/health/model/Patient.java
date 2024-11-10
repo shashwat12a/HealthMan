@@ -2,6 +2,11 @@ package com.health.model;
 
 import java.util.Date;
 
+/**
+ * Patient class represents a patient in the healthcare system.
+ * It holds information about the patient's personal details, contact info, and health data.
+ */
+
 public class Patient {
     Integer patient_id;
     Date date_of_birth;
