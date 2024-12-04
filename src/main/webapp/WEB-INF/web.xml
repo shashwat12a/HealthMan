@@ -4,4 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+      <!-- Servlet Declaration -->
+    <servlet>
+        <servlet-name>com.health.servlet.PatientRegisterServlet</servlet-name>
+        <servlet-class>com.health.servlet.PatientRegisterServlet</servlet-class>
+    </servlet>
+
+    <!-- Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>com.health.servlet.PatientRegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
 </web-app>
