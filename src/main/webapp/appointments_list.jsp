@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -62,18 +63,20 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Username</th>
-                            <th>Email</th>
+                            <th>Doctor ID</th>
+                            <th>Patient ID</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
+                      <c:forEach var="appointment" items="${appointments}">
                         <tr>
-                            <td>2</td>
-                            <td>Dr. Jane Doe</td>
-                            <td>jane12a</td>
-                            <td>jane12a@gmail.com</td>
+                            <td>${appointment.getAppointment_id()}</td>
+                            <td>${appointment.getDoctor_id()}</td>
+                            <td>${appointment.getPatient_id()}</td>
+                            <td>${appointment.getAppointment_date()}</td>
                         </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>

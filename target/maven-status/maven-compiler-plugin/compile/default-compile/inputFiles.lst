@@ -3,10 +3,17 @@ c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\dao\App
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\dao\DoctorDAO.java
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\dao\PatientDAO.java
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\dao\UserDAO.java
+c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\filter\AuthFilter.java
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\model\Appointment.java
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\model\AppointmentBooking.java
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\model\Doctor.java
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\model\Patient.java
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\model\User.java
+c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\servlet\AppointmentAddServlet.java
+c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\servlet\AppointmentsListServlet.java
+c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\servlet\LoginServlet.java
+c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\servlet\PatientListServlet.java
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\servlet\PatientRegisterServlet.java
+c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\servlet\UserAddServlet.java
+c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\servlet\UsersListServlet.java
 c:\Users\Acer\Desktop\java_coll\healthcare-mgmt\src\main\java\com\health\util\DBUtil.java

@@ -14,8 +14,8 @@ import java.sql.SQLException;
 
 public class DBUtil {
     private static final String URL = "jdbc:mysql://localhost:3306/health";
-    private static final String USER = "root";
-    private static final String PASSWORD = "password";
+    private static final String USER = "shashwat";
+    private static final String PASSWORD = "shashwat2581";
 
     /**
      * Establishes and returns a connection to the database.

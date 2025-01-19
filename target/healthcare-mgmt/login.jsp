@@ -51,7 +51,7 @@
             </div>
             <div class="card-body">
 <!-- Login Form -->
-<form id="loginForm" novalidate>
+<form id="loginForm" method="POST" action="login" novalidate>
     <!-- Email -->
     <div class="mb-3">
       <label for="emailInput" class="form-label">Email Address</label>

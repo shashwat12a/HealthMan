@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -65,15 +66,19 @@
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody>
+                      <c:forEach var="user" items="${patients}">
                         <tr>
-                            <td>2</td>
-                            <td>Dr. Jane Doe</td>
-                            <td>jane12a</td>
-                            <td>jane12a@gmail.com</td>
+                            <td>${user.getUser_id()}</td>
+                            <td>${user.getFirst_name()} ${user.getLast_name()}</td>
+                            <td>${user.getUsername()}</td>
+                            <td>${user.getEmail()}</td>
+                            <td>${user.getRole()}</td>
                         </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -86,6 +91,17 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                // Optional settings
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true
+            });
+        });
+    </script>
 </body>
 </html>
   </body>

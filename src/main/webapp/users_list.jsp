@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,7 +23,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Users</a>
+                <a class="nav-link active" aria-current="page" href="/healthcare-mgmt/users/list/">Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/healthcare-mgmt/users/add/">Add User</a>
               </li>
             </ul>
           </div>
@@ -63,20 +67,16 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                      <c:forEach var="user" items="${users}">
                         <tr>
-                            <td>1</td>
-                            <td>Dr. John Doe</td>
-                            <td>jon12a</td>
-                            <td>jon12a@gmail.com</td>
-                            <td>Doctor</td>
+                            <td>${user.getUser_id()}</td>
+                            <td>${user.getFirst_name()} ${user.getLast_name()}</td>
+                            <td>${user.getUsername()}</td>
+                            <td>${user.getEmail()}</td>
+                            <td>${user.getRole()}</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Dr. Jane Doe</td>
-                            <td>jane12a</td>
-                            <td>jane12a@gmail.com</td>
-                            <td>Patient</td>
-                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>

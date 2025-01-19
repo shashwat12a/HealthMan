@@ -1,6 +1,9 @@
 package com.health.dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.health.util.DBUtil;
 import com.health.model.Appointment;
 
@@ -33,6 +36,51 @@ public class AppointmentDAO {
             return false;
         }
     }
+
+    public boolean addAppointment(int patientId, int doctorId, Timestamp appointmentDate, String status) {
+        String query = "INSERT INTO Appointments (patient_id, doctor_id, appointment_date, status) VALUES (?, ?, ?, ?)";
+        
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+             
+            // Set the parameters for the query
+            stmt.setInt(1, patientId);
+            stmt.setInt(2, doctorId);
+            stmt.setTimestamp(3, appointmentDate);
+            stmt.setString(4, status); // Allows adding an appointment with a custom status
+            
+            // Execute the query and check the result
+            int result = stmt.executeUpdate();
+            return result > 0; // Returns true if at least one row was inserted
+        } catch (SQLException e) {
+            e.printStackTrace(); // Print the error stack trace for debugging
+            return false; // Returns false if the operation failed
+        }
+    }
+    
+
+    public List<Appointment> listAllAppointments() {
+        String query = "SELECT * FROM Appointments";
+        List<Appointment> appointments = new ArrayList<>();
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Appointment appointment = new Appointment();
+                appointment.setAppointment_id(rs.getInt("appointment_id"));
+                appointment.setPatient_id(rs.getInt("patient_id"));
+                appointment.setDoctor_id(rs.getInt("doctor_id"));
+                appointment.setAppointment_date(rs.getTimestamp("appointment_date"));
+                appointment.setStatus(rs.getString("status"));
+                appointments.add(appointment);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return appointments;
+    }
+
     /**
      * Retrieves an appointment by its appointment_id from the Appointments table.
      * @param appointmentId The unique ID of the appointment.

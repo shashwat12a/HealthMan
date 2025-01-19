@@ -1,6 +1,9 @@
 package com.health.dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.health.util.DBUtil;
 import com.health.model.User;
 
@@ -42,6 +45,63 @@ public class UserDAO {
             return false;
         }
     }
+public List<User> getAllUsers() {
+    List<User> userList = new ArrayList<>();
+    String query = "SELECT * FROM Users";
+    
+    try (Connection conn = DBUtil.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(query);
+         ResultSet rs = stmt.executeQuery()) {
+        
+        while (rs.next()) {
+            User user = new User();
+            user.setUser_id(rs.getInt("user_id"));
+            user.setUsername(rs.getString("username"));
+            user.setPassword(rs.getString("password"));
+            user.setEmail(rs.getString("email"));
+            user.setRole(rs.getString("role"));
+            user.setFirst_name(rs.getString("first_name"));
+            user.setLast_name(rs.getString("last_name"));
+            user.setPhone_number(rs.getString("phone_number"));
+            userList.add(user);  // Add user to the list
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    
+    return userList;  // Return the list of all users
+}
+
+public List<User> getPatients() {
+    List<User> userList = new ArrayList<>();
+    String query = "SELECT * FROM Users WHERE role = ?";
+    
+    try (Connection conn = DBUtil.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(query)) {
+        
+        stmt.setString(1, "Patient");  // Set the role to "Patient"
+        
+        try (ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                User user = new User();
+                user.setUser_id(rs.getInt("user_id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setRole(rs.getString("role"));
+                user.setFirst_name(rs.getString("first_name"));
+                user.setLast_name(rs.getString("last_name"));
+                user.setPhone_number(rs.getString("phone_number"));
+                userList.add(user);  // Add user to the list
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    
+    return userList;  // Return the list of users with the role "Patient"
+}
+
 
     /**
      * Retrieves a user by their user_id from the Users table.
@@ -72,7 +132,27 @@ public class UserDAO {
         }
         return null;
     }
+    public User getUserByEmail(String email) {
+        String query = "SELECT * FROM Users WHERE email = ?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
 
+            if (rs.next()) {
+                User user = new User();
+                user.setUser_id(rs.getInt("user_id"));
+                user.setFirst_name(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setRole(rs.getString("role"));
+                return user;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     /**
      * Updates user details in the Users table.
      * @param userId The user's unique ID.

@@ -5,15 +5,76 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
+    <!-- Define the AuthFilter -->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.health.filter.AuthFilter</filter-class>
+    </filter>
+
+    <!-- Map the filter to certain URL patterns -->
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/users/list</url-pattern>
+        <!-- Add any other protected pages you want to secure -->
+    </filter-mapping>
+
       <!-- Servlet Declaration -->
     <servlet>
         <servlet-name>com.health.servlet.PatientRegisterServlet</servlet-name>
         <servlet-class>com.health.servlet.PatientRegisterServlet</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>com.health.servlet.LoginServlet</servlet-name>
+        <servlet-class>com.health.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>com.health.servlet.UsersListServlet</servlet-name>
+        <servlet-class>com.health.servlet.UsersListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>com.health.servlet.UserAddServlet</servlet-name>
+        <servlet-class>com.health.servlet.UserAddServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>com.health.servlet.PatientListServlet</servlet-name>
+        <servlet-class>com.health.servlet.PatientListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>com.health.servlet.AppointmentsListServlet</servlet-name>
+        <servlet-class>com.health.servlet.AppointmentsListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>com.health.servlet.AppointmentAddServlet</servlet-name>
+        <servlet-class>com.health.servlet.AppointmentAddServlet</servlet-class>
+    </servlet>
     <!-- Servlet Mapping -->
     <servlet-mapping>
         <servlet-name>com.health.servlet.PatientRegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>com.health.servlet.LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>com.health.servlet.UsersListServlet</servlet-name>
+        <url-pattern>/users/list/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>com.health.servlet.UserAddServlet</servlet-name>
+        <url-pattern>/users/add/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>com.health.servlet.PatientListServlet</servlet-name>
+        <url-pattern>/patients/list/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>com.health.servlet.AppointmentsListServlet</servlet-name>
+        <url-pattern>/appointments/list/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>com.health.servlet.AppointmentAddServlet</servlet-name>
+        <url-pattern>/appointments/add/</url-pattern>
     </servlet-mapping>
 </web-app>
