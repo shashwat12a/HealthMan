@@ -1,3 +1,5 @@
+
+
 3rd Sem JAVA project, Galgotias University
 Team Members - Kings of Code
 * Shashwat Shagun
@@ -14,6 +16,8 @@ mvn clean
 mvn package
 ```
 then run .war package on the configured server
+
+# Notice: Patient Register servlet will is deprecated instead UserAddServlet will do the job from now on
 
 ### We used chatgpt to correct the english grammar of code comments, proper credits intended to the tool "chatgpt" where it is due
 
